@@ -1,6 +1,6 @@
-package com.example.franciscommarcos.autofind.Activities.Retrofit
+package com.example.franciscommarcos.autofind.App.Retrofit
 
-import com.example.franciscommarcos.autofind.Activities.Models.Plate
+import com.example.franciscommarcos.autofind.App.Models.Plate
 import retrofit2.Call
 import retrofit2.http.GET
 

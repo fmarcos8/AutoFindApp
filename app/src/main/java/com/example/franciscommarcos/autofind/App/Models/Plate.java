@@ -1,4 +1,4 @@
-package com.example.franciscommarcos.autofind.Activities.Models;
+package com.example.franciscommarcos.autofind.App.Models;
 
 
 public class Plate {

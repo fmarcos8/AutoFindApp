@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AutoFind.iml" filepath="$PROJECT_DIR$/AutoFind.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AutoFindApp.iml" filepath="$PROJECT_DIR$/AutoFindApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
