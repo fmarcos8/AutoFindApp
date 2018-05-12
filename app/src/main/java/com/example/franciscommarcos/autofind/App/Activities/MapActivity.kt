@@ -81,6 +81,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
         }
         map.mapType = GoogleMap.MAP_TYPE_TERRAIN
 
+
     }
 
     private fun placeMarkerOnMap(location: LatLng){
