@@ -85,7 +85,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     }
 
     private fun placeMarkerOnMap(location: LatLng){
-        val markerOptions = MarkerOptions().position(LatLng(-23.68849, -46.6718463))
+        val markerOptions = MarkerOptions().position(location)
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
         val titleAndress : String = getAddress(location)
         markerOptions.title(titleAndress)
@@ -103,10 +103,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
             addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
 
             if (null != addresses && !addresses.isEmpty()) {
-                address = addresses[0]
-                for (i in 1 until address.maxAddressLineIndex) {
+                addressText = addresses[0].getAddressLine(0)
+                /*for (i in 1 until address.maxAddressLineIndex) {
                     addressText += if (i == 0) address.getAddressLine(i) else "\n" + address.getAddressLine(i)
-                }
+                }*/
             }
         } catch (e: IOException) {
             Log.e("MapsActivity", e.localizedMessage)
