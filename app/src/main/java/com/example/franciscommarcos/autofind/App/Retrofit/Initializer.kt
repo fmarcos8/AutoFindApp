@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
  class Initializer {
     val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.procob.com/veiculos/v1/")
+            .baseUrl("http://temporadabrasil.com.br/autofind/web/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
