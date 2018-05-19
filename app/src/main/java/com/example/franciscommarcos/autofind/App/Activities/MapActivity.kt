@@ -1,7 +1,6 @@
 package com.example.franciscommarcos.autofind.App.Activities
 
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
@@ -38,7 +37,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -85,12 +83,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     }
 
     private fun placeMarkerOnMap(location: LatLng){
-        val markerOptions = MarkerOptions().position(location)
+        val markerOptions = MarkerOptions().position(location).snippet("Population: 4,137,400")
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+
         val titleAndress : String = getAddress(location)
         markerOptions.title(titleAndress)
 
         map.addMarker(markerOptions)
+
     }
 
     private fun getAddress(latLng: LatLng): String {
