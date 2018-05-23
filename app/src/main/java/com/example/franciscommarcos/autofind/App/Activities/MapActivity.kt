@@ -1,6 +1,7 @@
 package com.example.franciscommarcos.autofind.App.Activities
 
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
@@ -16,16 +17,23 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import java.io.IOException
+import com.google.android.gms.maps.model.LatLng
+
+
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     override fun onMarkerClick(p0: Marker?) = false
 
+    private val local1 = LatLng(-23.65019,-46.7206887)
+    private val local2 = LatLng(-23.636369, -46.687558)
+    private val local3 = LatLng(-23.680189, -46.695673)
+
     private lateinit var map: GoogleMap
+    private lateinit var map1: GoogleMap
+    private lateinit var map2: GoogleMap
+    private lateinit var map3: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
 
@@ -69,7 +77,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
         map.isMyLocationEnabled = true
 
         fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
-            // Got last known location. In some rare situations this can be null.
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
@@ -89,7 +96,29 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
         val titleAndress : String = getAddress(location)
         markerOptions.title(titleAndress)
 
+        map.addMarker(MarkerOptions()
+                .position(local1)
+                .title("TESTE"))
+
+        map.addMarker(MarkerOptions()
+                .position(local2)
+                .title("Perth"))
+
+        map.addMarker(MarkerOptions()
+                .position(local3)
+                .title("Perth"))
+
         map.addMarker(markerOptions)
+
+        val circle : Circle = map.addCircle(
+                CircleOptions()
+                .center(location)
+                .radius(3000.toDouble())
+                .strokeColor(Color.WHITE)
+                .strokeWidth(1.toFloat())
+                .fillColor(this@MapActivity.resources.getColor(R.color.transparence))
+        )
+
 
     }
 
