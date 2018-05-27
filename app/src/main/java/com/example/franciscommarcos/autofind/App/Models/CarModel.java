@@ -4,7 +4,7 @@ package com.example.franciscommarcos.autofind.App.Models;
  * Created by francisco.mmarcos on 15/05/2018.
  */
 
-public class Car {
+public class CarModel {
     private String placa;
     private String chassi;
     private String numerofaturado;
@@ -21,7 +21,7 @@ public class Car {
     private String ufmunicipio;
     private String tipoveiculo;
 
-    public Car(String placa, String chassi, String numerofaturado, String anofabricacao, String anomodelo, String marca, String modelo, String cor, String potencia, String cilindradas, String combustivel, String subsegmento, String municipio, String ufmunicipio, String tipoveiculo) {
+    public CarModel(String placa, String chassi, String numerofaturado, String anofabricacao, String anomodelo, String marca, String modelo, String cor, String potencia, String cilindradas, String combustivel, String subsegmento, String municipio, String ufmunicipio, String tipoveiculo) {
         this.placa = placa;
         this.chassi = chassi;
         this.numerofaturado = numerofaturado;
